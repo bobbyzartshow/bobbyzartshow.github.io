@@ -1,0 +1,13 @@
+---
+layout: none
+---
+[
+{% for post in site.posts %}
+{
+    "title": "{{ post.title | escape }}",
+    "url": "{{ post.url }}",
+    "date": "{{ post.date | date_to_xmlschema }}",
+    "excerpt": "{{ post.excerpt | escape }}"
+}{% if forloop.last == false %},{% endif %}
+{% endfor %}
+]

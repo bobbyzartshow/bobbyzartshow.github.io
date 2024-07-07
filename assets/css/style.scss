@@ -1,0 +1,202 @@
+html {
+    overflow-y: scroll; /* Always show vertical scrollbar */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding-right: calc(100vw - 100%); /* Compensate for scrollbar width */
+}
+
+header {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #333;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0;
+    padding: 0.25rem 0;
+    font-size: 40.8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -5px;
+    white-space: nowrap; /* Ensure text does not wrap */
+}
+
+.eraserhead-font {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -5px;
+    -webkit-text-stroke: 1px white;
+    paint-order: stroke fill;
+}
+
+.eraserhead-font .letter {
+    display: inline-block;
+    transform: skew(-5deg, 0deg);
+    position: relative;
+}
+
+.eraserhead-font .letter:nth-child(even) {
+    transform: skew(5deg, 0deg);
+}
+
+.eraserhead-font .letter::before {
+    content: attr(data-letter);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.flicker-text {
+    animation: 
+        flicker-opacity 0.107s infinite alternate,
+        flicker-shadow 0.214s infinite alternate,
+        flicker-displacement 0.321s infinite alternate;
+}
+
+@keyframes flicker-opacity {
+    0%, 100% { opacity: 1; }
+    10%, 30%, 50%, 70%, 90% { opacity: 0.8875; }
+    20%, 40%, 60%, 80% { opacity: 0.94375; }
+}
+
+@keyframes flicker-shadow {
+    0%, 100% { text-shadow: 0 0 2.25px #fff, 0 0 4.5px #fff; }
+    25%, 75% { text-shadow: none; }
+    50% { text-shadow: 0 0 1.125px #fff; }
+}
+
+@keyframes flicker-displacement {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(0.5625px); }
+    20% { transform: translateX(-0.5625px); }
+    30% { transform: translateY(0.5625px); }
+    40% { transform: translateY(-0.5625px); }
+}
+
+.flicker-img {
+    animation: 
+        flicker-opacity-img 0.0535s 14 alternate,
+        flicker-shadow-img 0.107s 7 alternate,
+        flicker-displacement-img 0.1605s 4.5 alternate;
+    animation-duration: 0.30s;
+    animation-iteration-count: 1;
+}
+
+@keyframes flicker-opacity-img {
+    0%, 100% { opacity: 1; }
+    10%, 30%, 50%, 70%, 90% { opacity: 0.775; }
+    20%, 40%, 60%, 80% { opacity: 0.8875; }
+}
+
+@keyframes flicker-shadow-img {
+    0%, 100% { text-shadow: 0 0 4.5px #fff, 0 0 9px #fff; }
+    25%, 75% { text-shadow: none; }
+    50% { text-shadow: 0 0 2.25px #fff; }
+}
+
+@keyframes flicker-displacement-img {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(1.125px); }
+    20% { transform: translateX(-1.125px); }
+    30% { transform: translateY(1.125px); }
+    40% { transform: translateY(-1.125px); }
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding-top: 0.25rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 12px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13.8px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    animation: 
+        flicker-opacity 0.107s infinite alternate,
+        flicker-shadow 0.214s infinite alternate,
+        flicker-displacement 0.321s infinite alternate;
+}
+
+.page-content {
+    padding-top: 3.5rem; /* Adjust this value to create space for the fixed header */
+}
+
+.main {
+    margin-top: 50px; /* Ensure the main content is below the fixed header */
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    margin-top: auto;
+}
+
+.post-header {
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.post-date {
+    font-size: 14px;
+    color: #bbb;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.wrapper {
+    padding: 20px;
+}
